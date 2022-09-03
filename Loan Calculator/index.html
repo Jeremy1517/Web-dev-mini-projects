@@ -1,37 +1,68 @@
-<!DOCTYPE html>
 <html lang="en">
 
-<head>
-	<meta charset="UTF-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link rel="stylesheet" href="style.css">
-	<title>Loan Calculator</title>
-</head>
+ <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width">
+  <title></title>
+  <link rel="stylesheet" href="style.css">
+  <!---Fontawsome link-->
+ <link href="https://fonts.googleapis.com/css2?family=Otomanopee+One&display=swap" rel="stylesheet">
+ </head>
+ <body>
+  <div class="app">
+    <div class="header">
+      <h1>DRUM KIT</h1>
+      <p class="band-tagline">Drumming is my therapy!</p>
+    </div>
 
-<body>
-	<div class="container">
-		<h3>Loan Calculator</h3>
-		<p>Loan Amount:
-			<input type="number" value="1" id="amount" min="0" onchange="calculateLoan()"> ₹</p>
-		<p>Interest Rate:
-			<input type="number" value="0.1" id="interest" min="0" onchange="calculateLoan()"> % </p>
-		<p>Months to Pay:
-			<input type="number" value="1" id="months" min="0" onchange="calculateLoan()"> </p>
-		<h2 id="payment"></h2> </div>
-	<script src="script.js">
-	function calculateLoan() {
-		const amount = document.querySelector("#amount").value;
-		const interestRate = document.querySelector("#interest").value;
-		const months = document.querySelector("#months").value;
-		const monthlyRate = (interestRate) / (12 * 100);
-		const onePlusR = Math.pow(1 + monthlyRate, months);
-		const den = onePlusR - 1;
-		const emi = (amount * monthlyRate * (onePlusR / den)).toFixed(2);
-		const totalPay = (emi * months).toFixed(2);
-		document.querySelector("#payment").innerHTML = `EMI: ₹ ${emi} <br><br> Total Payment: ₹${totalPay}`
-	}
-	</script>
-</body>
+    <div class="kit"></div>
+    <div class="pads">
+      <div class="pad-1 a">
+        <center>
+          <img src="images\closed-hihat.png">
+          <p class="keyboard-keys">A</p>
+        </center>
 
+        <audio class="sound" src="sounds\sound1.mp3"></audio>
+      </div>
+      <div class="pad-3 s">
+        <center>
+          <img src="images\kick.png">
+          <p class="keyboard-keys">S</p>
+        </center>
+        <audio class="sound" src="sounds\sound3.mp3"></audio>
+      </div>
+      <div class="pad-4 d">
+        <center>
+          <img src="images\clap.png">
+          <p class="keyboard-keys">D</p>
+        </center>
+        <audio class="sound" src="sounds\sound4.mp3"></audio>
+      </div>
+      <div class="pad-5 j">
+        <center>
+          <img src="images\open-hihat.png">
+          <p class="keyboard-keys">J</p>
+        </center>
+        <audio class="sound" src="sounds\sound5.mp3"></audio>
+      </div>
+      <div class="pad-6 k">
+        <center>
+          <img src="images\snare.png">
+          <p class="keyboard-keys">K</p>
+        </center>
+        <audio class="sound" src="sounds\sound6.mp3"></audio>
+      </div>
+      <div class="pad-2 l">
+        <center>
+          <img src="images\crash.png">
+          <p class="keyboard-keys">L</p>
+        </center>
+        <audio class="sound" src="sounds\sound2.mp3"></audio>
+      </div>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+ </body>
 </html>
